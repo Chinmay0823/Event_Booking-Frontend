@@ -1,0 +1,42 @@
+# Node modules
+/node_modules/
+
+# Build directory
+/build/
+/dist/
+
+# Environment files
+/.env
+/.env.local
+/.env.development
+/.env.production
+/.env.test
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dependency directories
+jspm_packages/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.idea/
+.vscode/
+
+# Mac-specific files
+.AppleDouble
+.LSOverride
+
+# Coverage folder (from testing)
+/coverage/
+
+# Miscellaneous files
+*.swp
+*.swo
+*.bak
+*.tmp
