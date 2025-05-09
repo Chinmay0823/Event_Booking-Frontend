@@ -1,15 +1,22 @@
 import React from 'react';
 import BookEvent from '../bookingHistory/BookingEvent';
+import './EventCard.css';
 
 const EventCard = ({ event }) => {
   return (
-    <div style={{ border: '1px solid #ccc', padding: '15px', marginBottom: '20px' }}>
-      <h3>{event.title}</h3>
-      <p>{event.description}</p>
-      <p><strong>Date:</strong> {new Date(event.date).toLocaleDateString()}</p>
-      <p><strong>Price:</strong> ${event.price}</p>
-      
-      <BookEvent eventId={event._id} />  {/* Include the BookEvent component */}
+    <div className="event-card">
+      <h3 className="event-title">{event.title}</h3>
+      <p className="event-description">{event.description}</p>
+      <p className="event-detail">
+        <strong>Date:</strong> {new Date(event.date).toLocaleDateString()}
+      </p>
+      <p className="event-detail">
+        <strong>Price:</strong> ${event.price}
+      </p>
+
+      <div className="event-action">
+        <BookEvent eventId={event._id} />
+      </div>
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import API from '../../services/api/api';
-import { useNavigate } from 'react-router-dom'; // Use useNavigate hook
+  import './CreateEvent.css'; 
 
 const CreateEvent = () => {
   const [formData, setFormData] = useState({
@@ -12,7 +12,6 @@ const CreateEvent = () => {
 
   const [message, setMessage] = useState('');
   const [error, setError] = useState('');
-  const navigate = useNavigate(); // Initialize navigate
 
   const handleChange = (e) => {
     setFormData({
@@ -36,59 +35,26 @@ const CreateEvent = () => {
     }
   };
 
-  const handleCreateEvent = () => {
-    navigate('/events'); 
-  };
+ 
 
   return (
-    <div>
-      <h2>Create New Event</h2>
-      <button 
-        onClick={handleCreateEvent} 
-        style={{ padding: '10px', margin: '10px', backgroundColor: '#4CAF50', color: 'white', border: 'none', borderRadius: '5px' }}>
-        Back to Event List
-      </button>
-      
-      {message && <p style={{ color: 'green' }}>{message}</p>}
-      {error && <p style={{ color: 'red' }}>{error}</p>}
+    <div className="create-event-container">
+  <h2>Create New Event</h2>
 
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="title"
-          placeholder="Event Title"
-          value={formData.title}
-          onChange={handleChange}
-          required
-        /><br />
+ 
 
-        <textarea
-          name="description"
-          placeholder="Event Description"
-          value={formData.description}
-          onChange={handleChange}
-          required
-        /><br />
+  {message && <p className="message">{message}</p>}
+  {error && <p className="error">{error}</p>}
 
-        <input
-          type="date"
-          name="date"
-          value={formData.date}
-          onChange={handleChange}
-          required
-        /><br />
+  <form onSubmit={handleSubmit}>
+    <input type="text" name="title" placeholder="Event Title" value={formData.title} onChange={handleChange} required />
+    <textarea name="description" placeholder="Event Description" value={formData.description} onChange={handleChange} required />
+    <input type="date" name="date" value={formData.date} onChange={handleChange} required />
+    <input type="number" name="price" placeholder="Price (optional)" value={formData.price} onChange={handleChange} />
+    <button type="submit">Create Event</button>
+  </form>
+</div>
 
-        <input
-          type="number"
-          name="price"
-          placeholder="Price (optional)"
-          value={formData.price}
-          onChange={handleChange}
-        /><br />
-
-        <button type="submit">Create Event</button>
-      </form>
-    </div>
   );
 };
 

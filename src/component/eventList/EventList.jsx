@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import API from '../../services/api/api';
 import EventCard from './EventCard';
+import './EventList.css'; 
 
 const EventList = () => {
   const [events, setEvents] = useState([]);
@@ -29,24 +30,24 @@ const EventList = () => {
   }, [currentPage]);
 
   return (
-    <div>
+    <div className="event-list-container">
       <h2>Available Events</h2>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-      {loading && <p>Loading events...</p>}
-      <div>
+      {error && <p style={{ color: 'red', textAlign: 'center' }}>{error}</p>}
+      {loading && <p style={{ textAlign: 'center' }}>Loading events...</p>}
+      <div className="event-cards">
         {events.map((event) => (
           <EventCard key={event._id} event={event} />
         ))}
       </div>
-
-      <div style={{ marginTop: '20px' }}>
+  
+      <div className="pagination">
         <button
           disabled={currentPage === 1}
           onClick={() => setCurrentPage(currentPage - 1)}
         >
           Previous
         </button>
-        <span>{` Page ${currentPage} of ${totalPages} `}</span>
+        <span>{`Page ${currentPage} of ${totalPages}`}</span>
         <button
           disabled={currentPage === totalPages}
           onClick={() => setCurrentPage(currentPage + 1)}
@@ -56,6 +57,6 @@ const EventList = () => {
       </div>
     </div>
   );
-};
+}
 
 export default EventList;

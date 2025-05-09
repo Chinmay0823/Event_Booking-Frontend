@@ -1,0 +1,80 @@
+.dashboard-container {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #fefefe;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+  }
+  
+  .dashboard-container h2,
+  .dashboard-container h3 {
+    color: #333;
+    margin-bottom: 15px;
+  }
+  
+  .dashboard-user-info {
+    margin-bottom: 25px;
+  }
+  
+  .dashboard-bookings ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .dashboard-bookings li {
+    background-color: #f4f4f4;
+    margin-bottom: 15px;
+    padding: 15px;
+    border-radius: 5px;
+    border-left: 4px solid #4CAF50;
+  }
+  
+  .dashboard-actions {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .dashboard-actions a {
+    display: inline-block;
+    text-align: center;
+    padding: 12px 20px;
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  .dashboard-actions a:first-child {
+    background-color: #008CBA;
+  }
+  
+  .dashboard-actions a:first-child:hover {
+    background-color: #0077a8;
+  }
+  
+  .dashboard-actions a:last-child {
+    background-color: #4CAF50;
+  }
+  
+  .dashboard-actions a:last-child:hover {
+    background-color: #449d48;
+  }
+  
+  @media (max-width: 600px) {
+    .dashboard-container {
+      padding: 15px;
+    }
+  
+    .dashboard-actions {
+      gap: 10px;
+    }
+  
+    .dashboard-actions a {
+      font-size: 0.95rem;
+      padding: 10px;
+    }
+  }
+  

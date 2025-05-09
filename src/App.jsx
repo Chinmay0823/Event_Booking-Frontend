@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 
-import Home from './pages/home/HomePage';
 import EventList from './component/eventList/EventList';
 import CreateEvent from './component/eventList/CreateEvent';
 import Dashboard from './pages/dashboard/Dashboard';
@@ -10,6 +9,7 @@ import BookingEvent from './component/bookingHistory/BookingEvent';
 import Login from './component/login/Login';
 import Register from './component/register/Register';
 import Navbar from './component/navbar/Navbar';
+import HomePage from './pages/home/HomePage';
 
 // Check if token exists
 const isAuthenticated = () => !!localStorage.getItem('token');
@@ -41,7 +41,7 @@ const App = () => {
           <Route path="/register" element={<Register />} />
 
           {/* Protected Routes */}
-          <Route path="/" element={<PrivateRoute element={<Home />} />} />
+          <Route path="/" element={<PrivateRoute element={<HomePage />} />} />
           <Route path="/events" element={<PrivateRoute element={<EventList />} />} />
           <Route path="/create-event" element={<PrivateRoute element={<CreateEvent />} />} />
           <Route path="/dashboard" element={<PrivateRoute element={<Dashboard />} />} />
