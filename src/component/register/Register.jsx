@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import API from '../../services/api/api';
-
+import './Register.css';
 const Register = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -22,19 +22,20 @@ const Register = () => {
     e.preventDefault();
 
     try {
-      const response = await API.post('/auth/register', formData);  
+      const response = await API.post('/auth/register', formData);
       console.log(response.data);
-      navigate('/login');  
+      navigate('/login');
     } catch (error) {
-        console.error('Registration error:', error);
+      console.error('Registration error:', error);
       setError('Registration failed. Please try again.');
     }
   };
 
   return (
-    <div>
+    <div className="login-container">
+      <h1>Booking Event</h1>
       <h2>Register</h2>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
+      {error && <p className="error-message">{error}</p>}
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -61,6 +62,9 @@ const Register = () => {
           required
         />
         <button type="submit">Register</button>
+        <p>
+          Already have an account? <a href="/login">Login here</a>
+        </p>
       </form>
     </div>
   );
